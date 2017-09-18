@@ -24,7 +24,7 @@ public class MineSweeperImpl implements MineSweeper {
 
     @Override
     public String getHintField() throws IllegalStateException {
-        String result = new String();
+        StringBuffer result = new StringBuffer();
         if (field == null) {
             throw new IllegalStateException();
         }
@@ -34,7 +34,7 @@ public class MineSweeperImpl implements MineSweeper {
         for (int row = 0; row < field.length; row++) {
             for (int col = 0; col < field[0].length; col++) {
                 if (field[row][col] == '*') {
-                    result = result.concat("*");
+                    result.append("*");
                 } else {
                     int counter = 0;
                     if (row - 1 >= 0 && col - 1 >= 0 && field[row - 1][col - 1] == '*')
@@ -54,18 +54,17 @@ public class MineSweeperImpl implements MineSweeper {
                     else if (row + 1 <= rowsAmount - 2 && col + 1 <= columnAmount - 2 && field[row + 1][col + 1] == '*')
                         counter++;
 
-                    result = result.concat(String.valueOf(counter));
+                   result.append(counter);
                 }
             }
-            result = result.concat("\\n");
+            result.append("\\n");
 
         }
-        return result;
+        return result.toString();
     }
 
     private boolean validateString(String field) {
         String[] rows = field.split("\n");
-        char[] row;
         int rowsAmount = rows.length;
         boolean result = true;
         int rowLength = rows[0].length();
