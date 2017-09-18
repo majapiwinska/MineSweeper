@@ -37,30 +37,20 @@ public class MineSweeperImpl implements MineSweeper {
                     result = result.concat("*");
                 } else {
                     int counter = 0;
-
-                    //1
                     if (row - 1 >= 0 && col - 1 >= 0 && field[row - 1][col - 1] == '*')
                         counter++;
-                        //2
                     else if (row - 1 >= 0 && field[row - 1][col] == '*')
                         counter++;
-                        //3
                     else if (row - 1 >= 0 && col + 1 <= columnAmount - 2 && field[row - 1][col + 1] == '*')
                         counter++;
-                        //4
                     else if (col - 1 >= 0 && field[row][col - 1] == '*')
                         counter++;
-                        //5
                     else if (col + 1 <= columnAmount - 2 && field[row][col + 1] == '*')
                         counter++;
-                        //6
                     else if (row + 1 <= rowsAmount - 2 && col - 1 >= 0 && field[row + 1][col] == '*')
                         counter++;
-
-                        //7
                     else if (row + 1 <= rowsAmount - 2 && field[row + 1][col] == '*')
                         counter++;
-                        //8
                     else if (row + 1 <= rowsAmount - 2 && col + 1 <= columnAmount - 2 && field[row + 1][col + 1] == '*')
                         counter++;
 
