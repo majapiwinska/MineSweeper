@@ -70,12 +70,7 @@ public class MineSweeperImpl implements MineSweeper {
         boolean result = true;
         int rowLength = rows[0].length();
         for (int i = 0; i < rowsAmount; i++) {
-            if (rows[i].length() != rowLength) {
-                result = false;
-            }
-        }
-        for (String r : rows) {
-            if (!r.matches("[*.]+"))
+            if (rows[i].length() != rowLength || !rows[i].matches("[*.]+"))
                 result = false;
         }
         return result;
